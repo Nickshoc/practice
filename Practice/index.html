@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изакая Лорелей | Японская кухня</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Навигация -->
+    <nav>
+        <div class="logo">
+            <i class="fas fa-utensils"></i>
+            <h1>Изакая Лорелей | Японская кухня</h1>
+        </div>
+        <div class="nav-icons">
+            <a href="#" class="nav-icon" onclick="showSection('profile')">
+                <i class="fas fa-user"></i>
+            </a>
+            <a href="#" class="nav-icon" onclick="showSection('cart')">
+                <i class="fas fa-shopping-cart">
+                    <span class="cart-count" id="cartCount">0</span>
+                </i>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Главная (Акции) -->
+        <section id="promotions" class="active">
+            <h2>Акции и предложения</h2>
+            <div class="promotions-grid">
+                <div class="promo-card">
+                    <div class="promo-image" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23ff9a8b%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22>2+1 Роллы</text></svg>')">
+                        <div class="promo-badge">-30%</div>
+                    </div>
+                    <div class="promo-content">
+                        <h3 class="promo-title">Три ролла по цене двух!</h3>
+                        <p class="promo-description">Закажите любые три ролла и получите самый дешевый в подарок. Акция действует на все роллы из меню.</p>
+                        <div class="promo-date">До 31.07.2025</div>
+                    </div>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-image" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23ff6b81%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22>Сеты</text></svg>')">
+                        <div class="promo-badge">ХИТ</div>
+                    </div>
+                    <div class="promo-content">
+                        <h3 class="promo-title">Скидка на сеты 20%</h3>
+                        <p class="promo-description">Все сеты со скидкой 20% при заказе от двух штук. Отличная возможность попробовать разные варианты.</p>
+                        <div class="promo-date">Постоянная акция</div>
+                    </div>
+                </div>
+                
+                <div class="promo-card">
+                    <div class="promo-image" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%234a235a%22/><text x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 text-anchor=%22middle%22 fill=%22white%22>Доставка</text></svg>')">
+                        <div class="promo-badge">БЕСПЛАТНО</div>
+                    </div>
+                    <div class="promo-content">
+                        <h3 class="promo-title">Бесплатная доставка</h3>
+                        <p class="promo-description">При заказе от 1000 рублей - доставка бесплатно в пределах города. Акция действует ежедневно с 11:00 до 22:00.</p>
+                        <div class="promo-date">Постоянная акция</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Меню -->
+        <section id="menu">
+            <h2>Наше меню</h2>
+            <div class="dishes-grid">
+            </div>
+        </section>
+
+        <!-- Корзина -->
+        <section id="cart">
+            <h2>Ваша корзина</h2>
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <h3>Корзина пуста</h3>
+                    <p>Добавьте что-нибудь из меню</p>
+                </div>
+            </div>
+            <div id="cartTotal" style="display: none;">
+                <div class="cart-total">
+                    Итого: <span id="totalAmount">0</span> ₽
+                </div>
+                <button class="checkout-btn" onclick="showSection('checkout')">Оформить заказ</button>
+            </div>
+        </section>
+
+        <!-- Профиль -->
+        <section id="profile">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h2 class="profile-name">Дмитрий Кирисамов</h2>
+                <p class="profile-email">dk@gmail.com</p>
+                <p class="profile-phone">+7 (951) 451-47-42</p>
+                <p class="profile-address">ул. Пушкина, д. 10, кв. 25</p>
+            </div>
+            
+            <div class="profile-actions">
+                <div class="profile-btn" onclick="showSection('order-history')">
+                    <i class="fas fa-history"></i>
+                    <h3>История заказов</h3>
+                </div>
+                
+                <div class="profile-btn" onclick="showSection('settings')">
+                    <i class="fas fa-cog"></i>
+                    <h3>Настройки</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- История заказов -->
+        <section id="order-history">
+            <h2>История заказов</h2>
+            <div id="historyContainer"></div> 
+        </section>
+
+        <!-- Настройки -->
+        <section id="settings">
+            <h2>Настройки профиля</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <div class="contact-text">
+                        <h3>Имя</h3>
+                        <input type="text" value="Дмитрий Кирисамов" style="border: none; width: 100%; font-size: 1rem; padding: 5px 0; border-bottom: 1px solid #eee; outline: none;">
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <input type="email" value="dk@gmail.com" style="border: none; width: 100%; font-size: 1rem; padding: 5px 0; border-bottom: 1px solid #eee; outline: none;">
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-text">
+                        <h3>Телефон</h3>
+                        <input type="tel" value="+7 (951) 451-47-42" style="border: none; width: 100%; font-size: 1rem; padding: 5px 0; border-bottom: 1px solid #eee; outline: none;">
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-user"></i>
+                    <div class="contact-text">
+                        <h3>Адрес</h3>
+                        <input type="text" value="ул. Пушкина, д. 10, кв. 25" style="border: none; width: 100%; font-size: 1rem; padding: 5px 0; border-bottom: 1px solid #eee; outline: none;">
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-lock"></i>
+                    <div class="contact-text">
+                        <h3>Пароль</h3>
+                        <input type="password" placeholder="Введите новый пароль" style="border: none; width: 100%; font-size: 1rem; padding: 5px 0; border-bottom: 1px solid #eee; outline: none;">
+                    </div>
+                </div>
+            </div>
+            
+            <button class="checkout-btn" style="margin-top: 30px;" onclick="saveProfile()">Сохранить изменения</button>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts">
+            <h2>Наши контакты</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-text">
+                        <h3>Адрес</h3>
+                        <p>ул. Ёкайская, д. 7, ТЦ "Восточный"</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-text">
+                        <h3>Телефон</h3>
+                        <p>+7 (999) 145-74-89</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="contact-text">
+                        <h3>Часы работы</h3>
+                        <p>Пн-Пт: 10:00 - 22:00<br>Сб-Вс: 11:00 - 22:00</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <p>lorelei@mail.ru</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- Нижняя навигация -->
+    <footer>
+        <a href="#" class="footer-btn active" onclick="showSection('promotions')">
+            <i class="fas fa-percent"></i>
+            <span>Акции</span>
+        </a>
+        <a href="#" class="footer-btn" onclick="showSection('menu')">
+            <i class="fas fa-utensils"></i>
+            <span>Меню</span>
+        </a>
+        <a href="#" class="footer-btn" onclick="showSection('cart')">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Корзина</span>
+        </a>
+        <a href="#" class="footer-btn" onclick="showSection('profile')">
+            <i class="fas fa-user"></i>
+            <span>Профиль</span>
+        </a>
+        <a href="#" class="footer-btn" onclick="showSection('contacts')">
+            <i class="fas fa-phone"></i>
+            <span>Контакты</span>
+        </a>
+    </footer>
+
+    <script src="../scripts/scripts.js"></script>
+</body>
+</html>
+
